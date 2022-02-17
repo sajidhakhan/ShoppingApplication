@@ -14,15 +14,15 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
   productService:
     image: products
-    build: UserProductService/
+    build: ./UserProductService
     restart: always
     hostname: localhost
     network_mode: host
     depends_on:
-      - mongo
+      - mongodb
     ports:
       - 8089:8089
-  mongo:
+  mongodb:
     image: mongo:3.2-jessie
     ports:
       - 27017:27017
